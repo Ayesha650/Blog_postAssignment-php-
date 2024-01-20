@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Clone</title>
+    <style>
+        body {
+           font-family: 'Open Sans', sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            width: 600px;
+            margin: 20px auto;
+			
+        }
+
+        .post {
+            background-color:lightblue;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .post:hover {
+            box-shadow: 0 4px 8px rgba(0, 76, 240, 0.45);
+            transform: scale(1.02);
+        }
+
+        .post-content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .post-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-button {
+            background-color: red;
+            color: black;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .action-button:hover {
+            background-color: yellow;
+        }
+
+        .action-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-icons img {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+		h1{
+		color: red;}
+		p{
+		color: red;
+		
+		}
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div class="post">
+        <div class="post-content">
+            <p>This is a sample post content. You can add your text here.</p>
+        </div>
+        <div class="post-actions">
+            <div class="action-icons">
+                <img src="like-icon.png" alt="Like">
+                <img src="comment-icon.png" alt="Comment">
+                <img src="share-icon.png" alt="Share">
+            </div>
+            <button class="action-button">Like</button>
+        </div>
+    </div>
+
+    <!-- Add more posts as needed -->
+</div>
+
+</body>
+</html>
+
+</head>
+<body>
+
+<div id="container">
+    <h1>Welcome to Blog_Post</h1>
+
+    <!-- User Information -->
+    <div>
+        <p>User: John Doe</p>
+        <p>Email: john.doe@example.com</p>
+        <!-- Add more user information as needed -->
+    </div>
+
+    <!-- Post Form -->
+    <form id="postForm">
+        <textarea id="postContent" placeholder="What's on your mind?"></textarea>
+        <br>
+        <button type="button" onclick="createPost()">Post</button>
+    </form>
+
+    <!-- Posts Feed -->
+    <div id="postFeed"></div>
+</div>
+
+<script>
+    // Mock data for posts
+    const posts = [
+        { id: 1, content: "This is a sample post.", user: "John Doe" },
+        { id: 2, content: "Another post here.", user: "Jane Smith" },
+        // Add more posts as needed
+    ];
+
+    // Function to create a new post
+    function createPost() {
+        const postContent = document.getElementById("postContent").value;
+
+        if (postContent.trim() !== "") {
+            // Mock user data (replace with actual user data)
+            const user = "John Doe";
+
+            // Mock post object (replace with actual data from the form)
+            const newPost = { id: posts.length + 1, content: postContent, user: user };
+
+            // Add the new post to the posts array
+            posts.push(newPost);
+
+            // Update the post feed
+            updatePostFeed();
+
+            // Clear the post form
+            document.getElementById("postContent").value = "";
+        }
+    }
+
+    // Function to update the posts feed
+    function updatePostFeed() {
+        const postFeed = document.getElementById("postFeed");
+
+        // Clear existing posts
+        postFeed.innerHTML = "";
+
+        // Render each post
+        posts.forEach(post => {
+            const postElement = document.createElement("div");
+            postElement.classList.add("post");
+
+            // Post content
+            const contentElement = document.createElement("p");
+            contentElement.textContent = post.content;
+            postElement.appendChild(contentElement);
+
+            // User information
+            const userElement = document.createElement("p");
+            userElement.textContent = "Posted by: " + post.user;
+            postElement.appendChild(userElement);
+
+            // Like and Share buttons (replace with actual functionality)
+            const actionsElement = document.createElement("div");
+            actionsElement.classList.add("post-actions");
+            actionsElement.innerHTML = `
+                <button onclick="likePost(${post.id})">Like</button>
+                <button onclick="sharePost(${post.id})">Share</button>
+            `;
+            postElement.appendChild(actionsElement);
+
+            postFeed.appendChild(postElement);
+        });
+    }
+
+    // Function to simulate liking a post
+    function likePost(postId) {
+        // Implement actual like functionality here
+        console.log("Liked post with ID: " + postId);
+    }
+
+    // Function to simulate sharing a post
+    function sharePost(postId) {
+        // Implement actual share functionality here
+        console.log("Shared post with ID: " + postId);
+    }
+
+    // Initial update of the posts feed
+    updatePostFeed();
+</script>
+
+</body>
+</html>

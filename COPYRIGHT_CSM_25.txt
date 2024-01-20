@@ -1,0 +1,11 @@
+Database Setup:
+
+I shared SQL statements to create tables for users, posts, likes, shares, and followers.
+PHP Code:
+
+I provided PHP code snippets for database connection (db.php), user registration (register.php), user login (login.php), and post creation (post.php).
+I also provided basic examples for liking posts (like.php), sharing posts (share.php), and following users (follow.php).
+HTML/JS Frontend:
+
+I offered a simple HTML file (index.html) with forms for user registration, login, and post creation, as well as a display for existing posts.
+For each feature, I included basic JavaScript functionality in the script.js file to handle user interactions and update the UI dynamically.
